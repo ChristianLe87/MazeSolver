@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MazeSolver", "MazeSolver\MazeSolver.csproj", "{68194BAC-1480-4E31-9438-3F004D4F793A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestMazeSolver", "TestMazeSolver\TestMazeSolver.csproj", "{8454D98B-2739-4FB3-ACAA-BDE0631AB296}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -13,5 +15,9 @@ Global
 		{68194BAC-1480-4E31-9438-3F004D4F793A}.Debug|x86.Build.0 = Debug|x86
 		{68194BAC-1480-4E31-9438-3F004D4F793A}.Release|x86.ActiveCfg = Release|x86
 		{68194BAC-1480-4E31-9438-3F004D4F793A}.Release|x86.Build.0 = Release|x86
+		{8454D98B-2739-4FB3-ACAA-BDE0631AB296}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8454D98B-2739-4FB3-ACAA-BDE0631AB296}.Debug|x86.Build.0 = Debug|Any CPU
+		{8454D98B-2739-4FB3-ACAA-BDE0631AB296}.Release|x86.ActiveCfg = Release|Any CPU
+		{8454D98B-2739-4FB3-ACAA-BDE0631AB296}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
