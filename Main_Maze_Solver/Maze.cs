@@ -74,6 +74,15 @@ namespace Main_Maze_Solver
             return null;
         }
 
+        public char GetLeft(Point point)
+        {
+            if (point.Left.X <= Width)
+            {
+                return GetChar(point.Left);
+            }
+            return 'x';
+        }
+
         public void SetChar(Point point, char val)
         {
             maze[point.Y][point.X] = val;
@@ -81,45 +90,37 @@ namespace Main_Maze_Solver
 
         public void Set_Up(Point point, char val)
         {
-            int nX = point.X;
-            int nY = point.Y-1;
-
-            if(nY >= 0)
+            if (point.Up.Y >= 0 && GetChar(point.Up) == ' ')
             {
-                SetChar(new Point(nX, nY),val);
+                SetChar(point.Up, val);
             }
         }
 
         public void Set_Down(Point point, char val)
         {
-            int nX = point.X;
-            int nY = point.Y + 1;
-
-            if (nY <= Height)
+            if ((point.Down.Y <= Height) && (GetChar(point.Down) == ' '))
             {
-                SetChar(new Point(nX, nY), val);
+                SetChar(point.Down, val);
             }
         }
 
         public void Set_Right(Point point, char val)
         {
-            int nX = point.X + 1;
-            int nY = point.Y;
-
-            if (nY <= Width)
+            if (point.Right.X <= Width && GetChar(point.Right) == ' ')
             {
-                SetChar(new Point(nX, nY), val);
+                SetChar(point.Right, val);
             }
         }
 
+
+       
+
+
         public void Set_Left(Point point, char val)
         {
-            int nX = point.X + 1;
-            int nY = point.Y;
-
-            if (nY <= Width)
+            if (point.Left.X <= Width && GetChar(point.Left) == ' ')
             {
-                SetChar(new Point(nX, nY), val);
+                SetChar(point.Left, val);
             }
         }
     }

@@ -18,6 +18,8 @@ namespace Main_Maze_Solver
             var maze = new Maze(myMaze);
             Tools.FillWithNumbers(maze);
 
+            Tools.PrintMaze(maze);
+
             Console.WriteLine("--- end ---");
             Console.ReadKey();
         }

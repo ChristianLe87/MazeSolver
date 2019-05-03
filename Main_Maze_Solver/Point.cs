@@ -13,24 +13,36 @@ namespace Main_Maze_Solver
             this.Y = Y;
         }
 
-        public Point Get_Up()
+        public Point Up
         {
-            return new Point(X, Y - 1);
+            get
+            {
+                return new Point(X, Y - 1);
+            }
         }
 
-        public Point Get_Down()
+        public Point Down
         {
-            return new Point(X, Y + 1);
+            get
+            {
+                return new Point(X, Y + 1);
+            }
         }
 
-        public Point Get_Right()
+        public Point Right
         {
-            return new Point(X + 1, Y);
+            get
+            {
+                return new Point(X + 1, Y);
+            }
         }
 
-        public Point Get_Left()
+        public Point Left
         {
-            return new Point(X - 1, Y);
+            get
+            {
+                return new Point(X - 1, Y);
+            }
         }
     }
 }

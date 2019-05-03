@@ -1,15 +1,28 @@
 ﻿using System;
 namespace Main_Maze_Solver
 {
-    public class Tools
+    public static class Tools
     {
-        public Tools()
-        {
-        }
 
         internal static void FillWithNumbers(Maze maze)
         {
-            throw new NotImplementedException();
+            int maxNumb = maze.Width * maze.Height;
+            for(var i = 0; i < maxNumb; ++i)
+            {
+
+            }
+        }
+
+        public static void PrintMaze(Maze maze)
+        {
+            foreach(var row in maze.maze)
+            {
+                foreach( var element in row)
+                {
+                    Console.Write($" {element} ");
+                }
+                Console.WriteLine();
+            }
         }
     }
 }

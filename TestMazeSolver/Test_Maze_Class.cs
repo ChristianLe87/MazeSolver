@@ -24,7 +24,6 @@ namespace TestMazeSolver
         }
 
 
-
         [TestMethod]
         public void Test_EndPoint()
         {
@@ -38,6 +37,7 @@ namespace TestMazeSolver
             Assert.IsTrue(maze.EndPoint.X == 2 && maze.EndPoint.Y == 1);
         }
 
+
         [TestMethod]
         public void Test_Width()
         {
@@ -49,6 +49,7 @@ namespace TestMazeSolver
 
             Assert.IsTrue(maze.Width == 3);
         }
+
 
         [TestMethod]
         public void Test_Heigh()
@@ -62,6 +63,7 @@ namespace TestMazeSolver
             Assert.IsTrue(maze.Height == 2);
         }
 
+
         [TestMethod]
         public void Test_GetChar()
         {
@@ -74,6 +76,7 @@ namespace TestMazeSolver
 
             Assert.IsTrue(result == 'e');
         }
+
 
         [TestMethod]
         public void Test_SetChar()
@@ -91,11 +94,12 @@ namespace TestMazeSolver
             Assert.IsTrue(result == 't');
         }
 
+
         [TestMethod]
         public void Test_Set_Up()
         {
             List<List<char>> myMaze = new List<List<char>>();
-            myMaze.Add(new List<char>() { '1', '2', '3' });
+            myMaze.Add(new List<char>() { '1', ' ', '3' });
             myMaze.Add(new List<char>() { '4', '5', '6' });
             myMaze.Add(new List<char>() { '7', '8', '9' });
 
@@ -106,13 +110,14 @@ namespace TestMazeSolver
             Assert.IsTrue(maze.GetChar(new Point(1, 0)) == 'x');
         }
 
+
         [TestMethod]
         public void Test_Set_Down()
         {
             List<List<char>> myMaze = new List<List<char>>();
             myMaze.Add(new List<char>() { '1', '2', '3' });
             myMaze.Add(new List<char>() { '4', '5', '6' });
-            myMaze.Add(new List<char>() { '7', '8', '9' });
+            myMaze.Add(new List<char>() { '7', ' ', '9' });
 
             Maze maze = new Maze(myMaze);
 
@@ -121,12 +126,13 @@ namespace TestMazeSolver
             Assert.IsTrue(maze.GetChar(new Point(1, 2)) == 'x');
         }
 
+
         [TestMethod]
         public void Test_Set_Right()
         {
             List<List<char>> myMaze = new List<List<char>>();
             myMaze.Add(new List<char>() { '1', '2', '3' });
-            myMaze.Add(new List<char>() { '4', '5', '6' });
+            myMaze.Add(new List<char>() { '4', '5', ' ' });
             myMaze.Add(new List<char>() { '7', '8', '9' });
 
             Maze maze = new Maze(myMaze);
