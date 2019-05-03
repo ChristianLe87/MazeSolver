@@ -5,7 +5,4 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\MazeSolver\MazeSolver.csproj" />
-  </ItemGroup>
 </Project>

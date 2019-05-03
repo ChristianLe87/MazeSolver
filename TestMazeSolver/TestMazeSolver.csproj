@@ -13,6 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MazeSolver\MazeSolver.csproj" />
+    <ProjectReference Include="..\Main_Maze_Solver\Main_Maze_Solver.csproj" />
   </ItemGroup>
 </Project>
