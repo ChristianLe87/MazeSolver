@@ -11,21 +11,28 @@ namespace Main_Maze_Solver
             int maxNumb = maze.Width * maze.Height;
 
             // List of possible numbers
-            List<string> list = new List<string>();
-            list.Add("s");
+            List<string> possibles = new List<string>();
+            possibles.Add("s");
             for (var i = 0; i < maxNumb; ++i)
             {
-                list.Add($"{i}");
+                possibles.Add($"{i}");
             }
 
 
-            for(var i = 0; i < maxNumb; ++i)
+            for (var possible = 0; possible < possibles.Count-1; ++possible)
             {
-                foreach (var row in maze.maze)
+                for (var row = 0; row < maze.Height; ++row)
                 {
-                    foreach(var element in row)
+                    for (var element = 0; element < maze.Width; ++element)
                     {
-
+                        var point = new Point(row, element);
+                        if (maze.GetString(point) == possibles[possible])
+                        {
+                            maze.Set_Up(point, possibles[possible + 1]);
+                            maze.Set_Down(point, possibles[possible + 1]);
+                            maze.Set_Right(point, possibles[possible + 1]);
+                            maze.Set_Left(point, possibles[possible + 1]);
+                        }
                     }
                 }
             }
