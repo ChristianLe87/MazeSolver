@@ -6,7 +6,7 @@ namespace Main_Maze_Solver
 {
     public class Maze
     {
-        public List<List<char>> maze { get; }
+        public List<List<string>> maze { get; }
 
         public Point StartPoint { get; }
         public Point EndPoint { get; }
@@ -15,7 +15,7 @@ namespace Main_Maze_Solver
         public int Width { get; }
 
 
-        public Maze(List<List<char>> maze)
+        public Maze(List<List<string>> maze)
         {
             this.maze = maze;
             this.Height = GetHeight();
@@ -25,7 +25,7 @@ namespace Main_Maze_Solver
         }
 
 
-        public char GetChar(Point point)
+        public string GetString(Point point)
         {
             return maze[point.Y][point.X];
         }
@@ -49,7 +49,7 @@ namespace Main_Maze_Solver
                     var point = new Point();
                     point.X = row;
                     point.Y = collumn;
-                    if (GetChar(point) == 's' || GetChar(point) == 'S')
+                    if (GetString(point) == "s" || GetString(point) == "S")
                     {
                         return point;
                     }
@@ -65,7 +65,7 @@ namespace Main_Maze_Solver
                 for (var collumn = 0; collumn < Height; ++collumn)
                 {
                     var point = new Point(row, collumn);
-                    if (GetChar(point) == 'e' || GetChar(point) == 'E')
+                    if (GetString(point) == "e" || GetString(point) == "E")
                     {
                         return point;
                     }
@@ -74,41 +74,41 @@ namespace Main_Maze_Solver
             return null;
         }
 
-        public char GetLeft(Point point)
+        public string GetLeft(Point point)
         {
             if (point.Left.X <= Width)
             {
-                return GetChar(point.Left);
+                return GetString(point.Left);
             }
-            return 'x';
+            return "x";
         }
 
-        public void SetChar(Point point, char val)
+        public void SetString(Point point, string val)
         {
             maze[point.Y][point.X] = val;
         }
 
-        public void Set_Up(Point point, char val)
+        public void Set_Up(Point point, string val)
         {
-            if (point.Up.Y >= 0 && GetChar(point.Up) == ' ')
+            if (point.Up.Y >= 0 && GetString(point.Up) == " ")
             {
-                SetChar(point.Up, val);
+                SetString(point.Up, val);
             }
         }
 
-        public void Set_Down(Point point, char val)
+        public void Set_Down(Point point, string val)
         {
-            if ((point.Down.Y <= Height) && (GetChar(point.Down) == ' '))
+            if ((point.Down.Y <= Height) && (GetString(point.Down) == " "))
             {
-                SetChar(point.Down, val);
+                SetString(point.Down, val);
             }
         }
 
-        public void Set_Right(Point point, char val)
+        public void Set_Right(Point point, string val)
         {
-            if (point.Right.X <= Width && GetChar(point.Right) == ' ')
+            if (point.Right.X <= Width && GetString(point.Right) == " ")
             {
-                SetChar(point.Right, val);
+                SetString(point.Right, val);
             }
         }
 
@@ -116,11 +116,11 @@ namespace Main_Maze_Solver
        
 
 
-        public void Set_Left(Point point, char val)
+        public void Set_Left(Point point, string val)
         {
-            if (point.Left.X <= Width && GetChar(point.Left) == ' ')
+            if (point.Left.X <= Width && GetString(point.Left) == " ")
             {
-                SetChar(point.Left, val);
+                SetString(point.Left, val);
             }
         }
     }

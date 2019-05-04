@@ -7,13 +7,13 @@ namespace Main_Maze_Solver
     {
         static void Main(string[] args)
         {
-            List<List<char>> myMaze = new List<List<char>>();
-            myMaze.Add(new List<char>() { ' ', ' ', ' ', ' ', 'x' });
-            myMaze.Add(new List<char>() { ' ', ' ', ' ', ' ', ' ' });
-            myMaze.Add(new List<char>() { 'x', ' ', 's', ' ', ' ' });
-            myMaze.Add(new List<char>() { ' ', ' ', 'x', ' ', ' ' });
-            myMaze.Add(new List<char>() { ' ', ' ', ' ', ' ', ' ' });
-            myMaze.Add(new List<char>() { ' ', ' ', 'x', ' ', 'e' });
+            List<List<string>> myMaze = new List<List<string>>();
+            myMaze.Add(new List<string>() { " ", " ", " ", " ", "x" });
+            myMaze.Add(new List<string>() { " ", " ", " ", " ", " " });
+            myMaze.Add(new List<string>() { "x", " ", "s", " ", " " });
+            myMaze.Add(new List<string>() { " ", " ", "x", " ", " " });
+            myMaze.Add(new List<string>() { " ", " ", " ", " ", " " });
+            myMaze.Add(new List<string>() { " ", " ", "x", " ", "e" });
 
             var maze = new Maze(myMaze);
             Tools.FillWithNumbers(maze);

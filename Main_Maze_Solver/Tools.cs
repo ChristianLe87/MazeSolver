@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace Main_Maze_Solver
 {
     public static class Tools
@@ -7,11 +9,28 @@ namespace Main_Maze_Solver
         internal static void FillWithNumbers(Maze maze)
         {
             int maxNumb = maze.Width * maze.Height;
+
+            // List of possible numbers
+            List<string> list = new List<string>();
+            list.Add("s");
+            for (var i = 0; i < maxNumb; ++i)
+            {
+                list.Add($"{i}");
+            }
+
+
             for(var i = 0; i < maxNumb; ++i)
             {
+                foreach (var row in maze.maze)
+                {
+                    foreach(var element in row)
+                    {
 
+                    }
+                }
             }
         }
+
 
         public static void PrintMaze(Maze maze)
         {
@@ -24,5 +43,6 @@ namespace Main_Maze_Solver
                 Console.WriteLine();
             }
         }
+
     }
 }
