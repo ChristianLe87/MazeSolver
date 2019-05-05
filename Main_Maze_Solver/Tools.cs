@@ -40,6 +40,24 @@ namespace Main_Maze_Solver
             }
         }
 
+        internal static void CleanMaze(Maze maze)
+        {
+            for(var row = 0; row < maze.Height; ++row)
+            {
+                for (var element =0; element < maze.Width; ++element)
+                {
+                    var point = new Point(element, row);
+                    if(
+                        (maze.GetElement(point) != "s") &&
+                        (maze.GetElement(point) != "e") &&
+                        (maze.GetElement(point) != "*") &&
+                        (maze.GetElement(point) != "x")
+                        )
+                    maze.SetElement(point, " ", true);
+                }
+            }
+        }
+
         internal static void GetShortestPath(Maze maze)
         {
             var end = maze.EndPoint;
