@@ -7,13 +7,15 @@ namespace Main_Maze_Solver
     {
         static void Main()
         {
-            List<List<string>> myMaze = new List<List<string>>();
-            myMaze.Add(new List<string>() { "s", " ", " ", " ", " ", " ", " ", " ", " " });
-            myMaze.Add(new List<string>() { " ", " ", " ", " ", " ", " ", " ", " ", " " });
-            myMaze.Add(new List<string>() { " ", " ", " ", " ", " ", " ", " ", " ", " " });
-            myMaze.Add(new List<string>() { " ", " ", " ", " ", " ", " ", " ", " ", " " });
-            myMaze.Add(new List<string>() { " ", " ", " ", " ", " ", " ", " ", " ", " " });
-            myMaze.Add(new List<string>() { " ", " ", " ", " ", " ", " ", " ", " ", "e" });
+            List<List<string>> myMaze = new List<List<string>>
+            {
+                new List<string>() { "s", " ", " ", " ", " ", " ", " ", " ", " " },
+                new List<string>() { " ", " ", " ", " ", " ", " ", " ", " ", " " },
+                new List<string>() { " ", " ", " ", " ", " ", " ", " ", " ", " " },
+                new List<string>() { " ", " ", " ", " ", " ", " ", " ", " ", " " },
+                new List<string>() { " ", " ", " ", " ", " ", " ", " ", " ", " " },
+                new List<string>() { " ", " ", " ", " ", " ", " ", " ", " ", "e" }
+            };
 
             var maze = new Maze(myMaze);
             Tools.FillWithNumbers(maze);
