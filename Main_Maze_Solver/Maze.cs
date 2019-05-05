@@ -122,44 +122,64 @@ namespace Main_Maze_Solver
         #endregion
 
         #region Set
-        public void SetElement(Point point, string val)
+        public void SetElement(Point point, string val, bool forceSet = false)
         {
             if ((point.X <= Width - 1) && (point.X >= 0) && (point.Y <= Height - 1) && (point.Y >= 0))
             {
-                if (maze[point.Y][point.X] == " ")
+                if (forceSet)
+                {
+                    maze[point.Y][point.X] = val;
+                }
+                else if (maze[point.Y][point.X] == " ")
                 {
                     maze[point.Y][point.X] = val;
                 }
             }
         }
 
-        public void Set_Up(Point point, string val)
+        public void Set_Up(Point point, string val, bool forceSet = false)
         {
-            if (point.Up.Y >= 0 && GetElement(point.Up) == " ")
+            if (forceSet)
+            {
+                SetElement(point.Up, val, forceSet);
+            }
+            else if (point.Up.Y >= 0 && GetElement(point.Up) == " ")
             {
                 SetElement(point.Up, val);
             }
         }
 
-        public void Set_Down(Point point, string val)
+        public void Set_Down(Point point, string val, bool forceSet = false)
         {
-            if ((point.Down.Y <= Height - 1) && (GetElement(point.Down) == " "))
+            if (forceSet)
+            {
+                SetElement(point.Down, val, forceSet);
+            }
+            else if ((point.Down.Y <= Height - 1) && (GetElement(point.Down) == " "))
             {
                 SetElement(point.Down, val);
             }
         }
 
-        public void Set_Right(Point point, string val)
+        public void Set_Right(Point point, string val, bool forceSet = false)
         {
-            if (point.Right.X <= Width && GetElement(point.Right) == " ")
+            if (forceSet)
+            {
+                SetElement(point.Right, val, forceSet);
+            }
+            else if (point.Right.X <= Width && GetElement(point.Right) == " ")
             {
                 SetElement(point.Right, val);
             }
         }
 
-        public void Set_Left(Point point, string val)
+        public void Set_Left(Point point, string val, bool forceSet = false)
         {
-            if (point.Left.X <= Width && GetElement(point.Left) == " ")
+            if (forceSet)
+            {
+                SetElement(point.Left, val, forceSet);
+            }
+            else if (point.Left.X <= Width && GetElement(point.Left) == " ")
             {
                 SetElement(point.Left, val);
             }
