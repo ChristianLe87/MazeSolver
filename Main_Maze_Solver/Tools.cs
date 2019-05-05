@@ -69,20 +69,16 @@ namespace Main_Maze_Solver
 
             // Get just numbers and order
             List<string> strElements = new List<string>() { up, down, right, left };
-            strElements = strElements
+            var intElements = strElements
                             .Where(x => x != "x")
                             .Where(x=> x != "s")
                             .Where(x => x != "e")
                             .Where(x => x != "*")
-                            .Distinct()
-                            .ToList();
-
-            var intElements = strElements
                             .Select(x => Int32.Parse(x))
                             .OrderBy(x => x)
                             .Distinct()
                             .ToList();
-
+                            
 
             for (var i = intElements.FirstOrDefault(); i > 0; --i)
             {

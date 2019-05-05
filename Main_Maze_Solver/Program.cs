@@ -9,12 +9,12 @@ namespace Main_Maze_Solver
         {
             List<List<string>> myMaze = new List<List<string>>
             {
-                new List<string>() { "s", " ", " ", " ", "x", " ", " ", " ", " " },
                 new List<string>() { " ", " ", " ", " ", "x", " ", " ", " ", " " },
-                new List<string>() { " ", " ", " ", " ", "x", " ", " ", "x", " " },
-                new List<string>() { " ", " ", " ", " ", "x", " ", " ", "x", " " },
-                new List<string>() { " ", " ", " ", " ", " ", " ", " ", "x", " " },
-                new List<string>() { " ", " ", " ", " ", " ", " ", " ", "x", "e" }
+                new List<string>() { " ", " ", " ", " ", "x", " ", " ", " ", " " },
+                new List<string>() { " ", "x", "x", " ", " ", " ", " ", "x", " " },
+                new List<string>() { " ", "s", " ", "x", "x", " ", " ", "x", " " },
+                new List<string>() { " ", " ", "x", " ", " ", " ", " ", "x", " " },
+                new List<string>() { " ", " ", "x", " ", " ", " ", " ", "x", "e" }
             };
 
             var maze = new Maze(myMaze);
