@@ -13,28 +13,31 @@ namespace Main_Maze_Solver
             // List of possible numbers
             List<string> possibles = new List<string>();
             possibles.Add("s");
-            for (var i = 0; i < maxNumb; ++i)
+            for (var i = 1; i < maxNumb; ++i)
             {
                 possibles.Add($"{i}");
             }
+            possibles.Add("e");
 
 
-
-            // for each row
-            for (var row = 0; row < maze.Height; ++row)
+            // for each number
+            for (var possible = 0; possible < maxNumb; ++possible)
             {
-                // for each element
-                for (var element = 0; element < maze.Width; ++element)
+                // for each row
+                for (var row = 0; row < maze.Height; ++row)
                 {
-                    UpDownRightLeft(maze, new Point(element,row), " ");
-                    //Console.Write(maze.maze[row][element]);
-                    //Console.Write($" {row}/{element} ");
+                    // for each element
+                    for (var element = 0; element < maze.Width; ++element)
+                    {
+                        if (maze.maze[row][element] == possibles[possible])
+                        {
+
+                            UpDownRightLeft(maze, new Point(element, row), possibles[possible + 1]);
+                        }
+                    }
                 }
-                //Console.WriteLine();
+
             }
-
-
-
         }
 
         public static void UpDownRightLeft(Maze maze, Point point,string val)
