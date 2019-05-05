@@ -31,13 +31,18 @@ namespace Main_Maze_Solver
                     {
                         if (maze.maze[row][element] == possibles[possible])
                         {
-
                             UpDownRightLeft(maze, new Point(element, row), possibles[possible + 1]);
                         }
                     }
                 }
 
             }
+        }
+
+        internal static void GetShortestPath(Maze maze)
+        {
+            var end = maze.EndPoint;
+
         }
 
         public static void UpDownRightLeft(Maze maze, Point point,string val)
@@ -47,7 +52,6 @@ namespace Main_Maze_Solver
             maze.Set_Right(point, val);
             maze.Set_Left(point, val);
         }
-
 
         public static void PrintMaze(Maze maze)
         {

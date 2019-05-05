@@ -52,36 +52,6 @@ namespace TestMazeSolver
 
 
         [TestMethod]
-        public void Test_Maze_GetLef()
-        {
-            List<List<string>> myMaze = new List<List<string>>();
-            myMaze.Add(new List<string>() {" ","a" });
-            var maze = new Maze(myMaze);
-            Assert.IsTrue(maze.GetLeft(new Point(1, 0)) == " ");
-        }
-
-
-        [TestMethod]
-        public void Test_Maze_GetLef_NotEmpty()
-        {
-            List<List<string>> myMaze = new List<List<string>>();
-            myMaze.Add(new List<string>() { "a", "b" });
-            var maze = new Maze(myMaze);
-            Assert.IsTrue(maze.GetLeft(new Point(1, 0)) == "a");
-        }
-
-
-        [TestMethod]
-        public void Test_Maze_GetLef_OutOfRange()
-        {
-            List<List<string>> myMaze = new List<List<string>>();
-            myMaze.Add(new List<string>() { "a" });
-            var maze = new Maze(myMaze);
-            Assert.IsTrue(maze.GetLeft(new Point(0, 0)) == "x");
-        }
-
-
-        [TestMethod]
         public void _4_1_Maze_SetElement()
         {
             List<List<string>> myMaze = new List<List<string>>();
@@ -242,6 +212,88 @@ namespace TestMazeSolver
             myMaze.Add(new List<string>() { "a" });
             var maze = new Maze(myMaze);
             maze.Set_Left(new Point(0, 0), "x");
+        }
+
+
+        [TestMethod]
+        public void _9_1_Maze_GetLef()
+        {
+            List<List<string>> myMaze = new List<List<string>>();
+            myMaze.Add(new List<string>() { " ", "a" });
+            var maze = new Maze(myMaze);
+            Assert.IsTrue(maze.Get_Left(new Point(1, 0)) == " ");
+        }
+
+
+        [TestMethod]
+        public void _9_2_Maze_GetLef_OutOfRange()
+        {
+            List<List<string>> myMaze = new List<List<string>>();
+            myMaze.Add(new List<string>() { "a" });
+            var maze = new Maze(myMaze);
+            Assert.IsTrue(maze.Get_Left(new Point(0, 0)) == "x");
+        }
+
+
+        [TestMethod]
+        public void _10_1_Maze_GetRight()
+        {
+            List<List<string>> myMaze = new List<List<string>>();
+            myMaze.Add(new List<string>() { "a", "b" });
+            var maze = new Maze(myMaze);
+            Assert.IsTrue(maze.Get_Right(new Point(0, 0)) == "b");
+        }
+
+
+        [TestMethod]
+        public void _10_2_Maze_GetRight_OutOfRange()
+        {
+            List<List<string>> myMaze = new List<List<string>>();
+            myMaze.Add(new List<string>() { "a" });
+            var maze = new Maze(myMaze);
+            Assert.IsTrue(maze.Get_Right(new Point(0, 0)) == "x");
+        }
+
+
+        [TestMethod]
+        public void _11_1_Maze_GetUp()
+        {
+            List<List<string>> myMaze = new List<List<string>>();
+            myMaze.Add(new List<string>() { "a" });
+            myMaze.Add(new List<string>() { "b" });
+            var maze = new Maze(myMaze);
+            Assert.IsTrue(maze.Get_Up(new Point(0, 1)) == "a");
+        }
+
+
+        [TestMethod]
+        public void _11_2_Maze_GetUp_OutOfRange()
+        {
+            List<List<string>> myMaze = new List<List<string>>();
+            myMaze.Add(new List<string>() { "a" });
+            var maze = new Maze(myMaze);
+            Assert.IsTrue(maze.Get_Up(new Point(0, 0)) == "x");
+        }
+
+
+        [TestMethod]
+        public void _12_1_Maze_GetDown()
+        {
+            List<List<string>> myMaze = new List<List<string>>();
+            myMaze.Add(new List<string>() { "a" });
+            myMaze.Add(new List<string>() { "b" });
+            var maze = new Maze(myMaze);
+            Assert.IsTrue(maze.Get_Down(new Point(0, 0)) == "b");
+        }
+
+
+        [TestMethod]
+        public void _12_2_Maze_GetDown_OutOfRange()
+        {
+            List<List<string>> myMaze = new List<List<string>>();
+            myMaze.Add(new List<string>() { "a" });
+            var maze = new Maze(myMaze);
+            Assert.IsTrue(maze.Get_Down(new Point(0, 0)) == "x");
         }
     }
 }

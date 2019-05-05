@@ -25,18 +25,6 @@ namespace Main_Maze_Solver
             this.EndPoint = GetEndPoint();
         }
 
-        public string GetElement(Point point)
-        {
-            if((point.X <= Width-1) && (point.X >= 0) && (point.Y <= Height) && (point.Y >= 0))
-            {
-                return maze[point.Y][point.X];
-            }
-            else
-            {
-                return "x";
-            }
-
-        }
 
         private int GetWidth()
         {
@@ -82,8 +70,21 @@ namespace Main_Maze_Solver
             return null;
         }
 
-        [ObsoleteAttribute("This property is obsolete.", false)]
-        public string GetLeft(Point point)
+        #region Get
+        public string GetElement(Point point)
+        {
+            if ((point.X <= Width - 1) && (point.X >= 0) && (point.Y <= Height) && (point.Y >= 0))
+            {
+                return maze[point.Y][point.X];
+            }
+            else
+            {
+                return "x";
+            }
+
+        }
+
+        public string Get_Left(Point point)
         {
             if (point.Left.X <= Width)
             {
@@ -92,9 +93,38 @@ namespace Main_Maze_Solver
             return "x";
         }
 
+        public string Get_Right(Point point)
+        {
+            if (point.Right.X <= Width)
+            {
+                return GetElement(point.Right);
+            }
+            return "x";
+        }
+
+        public string Get_Up(Point point)
+        {
+            if (point.Up.Y >= 0)
+            {
+                return GetElement(point.Up);
+            }
+            return "x";
+        }
+
+        public string Get_Down(Point point)
+        {
+            if (point.Down.Y <= Height - 1)
+            {
+                return GetElement(point.Down);
+            }
+            return "x";
+        }
+        #endregion
+
+        #region Set
         public void SetElement(Point point, string val)
         {
-            if ((point.X <= Width-1) && (point.X >= 0) && (point.Y <= Height-1) && (point.Y >= 0))
+            if ((point.X <= Width - 1) && (point.X >= 0) && (point.Y <= Height - 1) && (point.Y >= 0))
             {
                 if (maze[point.Y][point.X] == " ")
                 {
@@ -134,5 +164,6 @@ namespace Main_Maze_Solver
                 SetElement(point.Left, val);
             }
         }
+        #endregion
     }
 }
