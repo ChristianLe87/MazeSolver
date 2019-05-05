@@ -19,23 +19,30 @@ namespace Main_Maze_Solver
             }
 
 
-            for (var possible = 0; possible < possibles.Count-1; ++possible)
+
+            // for each row
+            for (var row = 0; row < maze.Height; ++row)
             {
-                for (var row = 0; row < maze.Height; ++row)
+                // for each element
+                for (var element = 0; element < maze.Width; ++element)
                 {
-                    for (var element = 0; element < maze.Width; ++element)
-                    {
-                        var point = new Point(row, element);
-                        if (maze.GetString(point) == possibles[possible])
-                        {
-                            maze.Set_Up(point, possibles[possible + 1]);
-                            maze.Set_Down(point, possibles[possible + 1]);
-                            maze.Set_Right(point, possibles[possible + 1]);
-                            maze.Set_Left(point, possibles[possible + 1]);
-                        }
-                    }
+                    UpDownRightLeft(maze, new Point(element,row), " ");
+                    //Console.Write(maze.maze[row][element]);
+                    //Console.Write($" {row}/{element} ");
                 }
+                //Console.WriteLine();
             }
+
+
+
+        }
+
+        public static void UpDownRightLeft(Maze maze, Point point,string val)
+        {
+            maze.Set_Up(point, val);
+            maze.Set_Down(point, val);
+            maze.Set_Right(point, val);
+            maze.Set_Left(point, val);
         }
 
 

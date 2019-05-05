@@ -7,6 +7,7 @@ namespace Main_Maze_Solver
         public int Y { get; set; }
 
         public Point() { }
+
         public Point(int X, int Y)
         {
             this.X = X;

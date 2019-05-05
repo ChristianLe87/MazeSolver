@@ -14,6 +14,7 @@ namespace Main_Maze_Solver
         public int Height { get; }
         public int Width { get; }
 
+        public Maze() { }
 
         public Maze(List<List<string>> maze)
         {
@@ -24,10 +25,17 @@ namespace Main_Maze_Solver
             this.EndPoint = GetEndPoint();
         }
 
-
-        public string GetString(Point point)
+        public string GetElement(Point point)
         {
-            return maze[point.Y][point.X];
+            if((point.X <= Width-1) && (point.X >= 0) && (point.Y <= Height) && (point.Y >= 0))
+            {
+                return maze[point.Y][point.X];
+            }
+            else
+            {
+                return "x";
+            }
+
         }
 
         private int GetWidth()
@@ -49,7 +57,7 @@ namespace Main_Maze_Solver
                     var point = new Point();
                     point.X = row;
                     point.Y = collumn;
-                    if (GetString(point) == "s" || GetString(point) == "S")
+                    if (GetElement(point) == "s" || GetElement(point) == "S")
                     {
                         return point;
                     }
@@ -65,7 +73,7 @@ namespace Main_Maze_Solver
                 for (var collumn = 0; collumn < Height; ++collumn)
                 {
                     var point = new Point(row, collumn);
-                    if (GetString(point) == "e" || GetString(point) == "E")
+                    if (GetElement(point) == "e" || GetElement(point) == "E")
                     {
                         return point;
                     }
@@ -74,53 +82,56 @@ namespace Main_Maze_Solver
             return null;
         }
 
+        [ObsoleteAttribute("This property is obsolete.", false)]
         public string GetLeft(Point point)
         {
             if (point.Left.X <= Width)
             {
-                return GetString(point.Left);
+                return GetElement(point.Left);
             }
             return "x";
         }
 
-        public void SetString(Point point, string val)
+        public void SetElement(Point point, string val)
         {
-            maze[point.Y][point.X] = val;
+            if ((point.X <= Width-1) && (point.X >= 0) && (point.Y <= Height-1) && (point.Y >= 0))
+            {
+                if (maze[point.Y][point.X] == " ")
+                {
+                    maze[point.Y][point.X] = val;
+                }
+            }
         }
 
         public void Set_Up(Point point, string val)
         {
-            if (point.Up.Y >= 0 && GetString(point.Up) == " ")
+            if (point.Up.Y >= 0 && GetElement(point.Up) == " ")
             {
-                SetString(point.Up, val);
+                SetElement(point.Up, val);
             }
         }
 
         public void Set_Down(Point point, string val)
         {
-            if ((point.Down.Y <= Height) && (GetString(point.Down) == " "))
+            if ((point.Down.Y <= Height - 1) && (GetElement(point.Down) == " "))
             {
-                SetString(point.Down, val);
+                SetElement(point.Down, val);
             }
         }
 
         public void Set_Right(Point point, string val)
         {
-            if (point.Right.X <= Width && GetString(point.Right) == " ")
+            if (point.Right.X <= Width && GetElement(point.Right) == " ")
             {
-                SetString(point.Right, val);
+                SetElement(point.Right, val);
             }
         }
 
-
-       
-
-
         public void Set_Left(Point point, string val)
         {
-            if (point.Left.X <= Width && GetString(point.Left) == " ")
+            if (point.Left.X <= Width && GetElement(point.Left) == " ")
             {
-                SetString(point.Left, val);
+                SetElement(point.Left, val);
             }
         }
     }
