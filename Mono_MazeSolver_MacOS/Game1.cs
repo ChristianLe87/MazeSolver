@@ -13,11 +13,14 @@ namespace Mono_MazeSolver_MacOS
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Texture2D jugador;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            graphics.PreferredBackBufferWidth = 500;
+            graphics.PreferredBackBufferHeight = 500;
         }
 
         /// <summary>
@@ -41,6 +44,8 @@ namespace Mono_MazeSolver_MacOS
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            jugador = Content.Load<Texture2D>("Path");
+
 
             //TODO: use this.Content to load your game content here 
         }
@@ -71,9 +76,12 @@ namespace Mono_MazeSolver_MacOS
         protected override void Draw(GameTime gameTime)
         {
             graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
-            
+
             //TODO: Add your drawing code here
-            
+            spriteBatch.Begin();
+            spriteBatch.Draw(jugador, Vector2.Zero, Color.White); // Color.White es opcional
+            spriteBatch.End();
+
             base.Draw(gameTime);
         }
     }
