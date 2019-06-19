@@ -13,8 +13,23 @@ namespace Mono_MazeSolver_MacOS
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Texture2D jugador;
 
+        Texture2D pathTexture;
+        Texture2D startTexture;
+        Texture2D endTexture;
+        Texture2D wallTexture;
+        Texture2D notWallTexture;
+
+        string[,] myMaze = new string[,]
+            {
+                { " ", " ", " ", " ", "x", " ", " ", " ", " " },
+                { " ", " ", " ", " ", "x", " ", " ", " ", " " },
+                { " ", "x", "x", " ", " ", " ", " ", "x", " " },
+                { " ", "s", " ", "x", "x", " ", " ", "x", " " },
+                { " ", " ", "x", " ", " ", " ", " ", "x", " " },
+                { " ", " ", "x", " ", " ", " ", " ", "x", "e" }
+            };
+        Maze maze;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -44,9 +59,8 @@ namespace Mono_MazeSolver_MacOS
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            jugador = Content.Load<Texture2D>("Path");
 
-
+            maze = new Maze(myMaze, Content);
             //TODO: use this.Content to load your game content here 
         }
 
@@ -69,17 +83,16 @@ namespace Mono_MazeSolver_MacOS
             base.Update(gameTime);
         }
 
-        /// <summary>
-        /// This is called when the game should draw itself.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+
+
         protected override void Draw(GameTime gameTime)
         {
             graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            //TODO: Add your drawing code here
             spriteBatch.Begin();
-            spriteBatch.Draw(jugador, Vector2.Zero, Color.White); // Color.White es opcional
+
+            maze.Draw(spriteBatch);
+
             spriteBatch.End();
 
             base.Draw(gameTime);
