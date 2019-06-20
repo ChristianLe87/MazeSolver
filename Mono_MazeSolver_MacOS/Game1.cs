@@ -10,15 +10,16 @@ namespace Mono_MazeSolver_MacOS
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
+        double timeCount = 0;
+        int delay = 1;
         string[,] myMaze = new string[,]
             {
                 { " ", " ", " ", " ", "x", " ", " ", " ", " " },
                 { " ", " ", " ", " ", "x", " ", " ", " ", " " },
-                { " ", "x", "x", " ", " ", " ", " ", "x", " " },
-                { " ", "s", " ", "x", "x", " ", " ", "x", " " },
-                { " ", " ", "x", " ", " ", " ", " ", "x", " " },
-                { " ", " ", "x", " ", " ", " ", " ", "x", "e" }
+                { " ", "x", "x", " ", "x", "x", " ", "x", " " },
+                { " ", " ", " ", " ", "x", " ", " ", "x", " " },
+                { " ", " ", "x", " ", "x", " ", " ", "x", " " },
+                { " ", "s", "x", " ", " ", " ", " ", "x", "e" }
             };
         Maze maze;
 
@@ -59,8 +60,19 @@ namespace Mono_MazeSolver_MacOS
                 Exit();
 #endif
 
-            // TODO: Add your update logic here
 
+            timeCount = timeCount+ gameTime.ElapsedGameTime.TotalMilliseconds;
+            if (timeCount>1)
+            {
+                timeCount = 0;
+                Tools.FillWithNumbers(maze);
+
+                Tools.GetShortestPath(maze);
+
+                Tools.CleanMaze(maze);
+
+                Tools.PrintMaze(maze);
+            }
             base.Update(gameTime);
         }
 
