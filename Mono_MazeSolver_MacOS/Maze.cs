@@ -9,8 +9,10 @@ namespace Mono_MazeSolver_MacOS
 {
     public class Maze
     {
-        //Rectangle playerPosition;
         string[,] myMaze;
+
+        int mazeWide;
+        int mazeHeigh;
 
         Texture2D pathTexture;
         Texture2D startTexture;
@@ -23,11 +25,14 @@ namespace Mono_MazeSolver_MacOS
         {
             this.myMaze = myMaze;
 
-            pathTexture = Content.Load<Texture2D>("Path");
-            startTexture = Content.Load<Texture2D>("Start");
-            endTexture = Content.Load<Texture2D>("End");
-            wallTexture = Content.Load<Texture2D>("Wall");
-            notWallTexture = Content.Load<Texture2D>("NotWall");
+            this.mazeWide = myMaze.GetLength(1);
+            this.mazeHeigh = myMaze.GetLength(0);
+
+            this.pathTexture = Content.Load<Texture2D>("Path");
+            this.startTexture = Content.Load<Texture2D>("Start");
+            this.endTexture = Content.Load<Texture2D>("End");
+            this.wallTexture = Content.Load<Texture2D>("Wall");
+            this.notWallTexture = Content.Load<Texture2D>("NotWall");
         }
 
         public void Update(KeyboardState tecla)
@@ -37,12 +42,10 @@ namespace Mono_MazeSolver_MacOS
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            //spriteBatch.Draw(Path, new Vector2(x*20,y*20), Color.White); // Color.White es opcional
-            for (int raw = 0; raw < 9; raw++)
+            for (int raw = 0; raw < mazeWide; raw++)
             {
-                for(int element = 0;  element <6; element++)
+                for(int element = 0;  element < mazeHeigh; element++)
                 {
-                    //Console.WriteLine(myMaze[element, raw]);
                     if(myMaze[element,raw] == "*")
                     {
                         spriteBatch.Draw(pathTexture, new Vector2(raw * 20, element * 20), Color.White);
