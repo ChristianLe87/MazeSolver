@@ -39,6 +39,7 @@ namespace Mono_MazeSolver_MacOS
         protected override void Initialize()
         {
             base.Initialize();
+            this.IsMouseVisible = true;
         }
 
 
