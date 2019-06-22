@@ -22,6 +22,7 @@ namespace Mono_MazeSolver_MacOS
                 { " ", "s", "x", " ", " ", " ", " ", "x", "e" }
             };
         Maze maze;
+        Button boton1;
 
         public Game1()
         {
@@ -49,6 +50,9 @@ namespace Mono_MazeSolver_MacOS
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             maze = new Maze(myMaze, Content);
+
+
+            boton1 = new Button("BotonUno", Content.Load<Texture2D>("Button1"), 10, 70);
         }
 
 
@@ -61,6 +65,7 @@ namespace Mono_MazeSolver_MacOS
                 Exit();
 #endif
 
+            MouseState state = Mouse.GetState();
 
             timeCount = timeCount+ gameTime.ElapsedGameTime.TotalMilliseconds;
             if (timeCount>1)
@@ -74,6 +79,8 @@ namespace Mono_MazeSolver_MacOS
 
                 Tools.PrintMaze(maze);
             }
+
+            boton1.Update(state, gameTime);
             base.Update(gameTime);
         }
 
@@ -86,7 +93,7 @@ namespace Mono_MazeSolver_MacOS
             spriteBatch.Begin();
 
             maze.Draw(spriteBatch);
-
+            boton1.Draw(spriteBatch);
             spriteBatch.End();
 
             base.Draw(gameTime);

@@ -63,6 +63,7 @@
     <Compile Include="Maze.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Tools.cs" />
+    <Compile Include="Button.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
