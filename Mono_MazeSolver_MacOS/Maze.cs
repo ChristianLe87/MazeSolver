@@ -215,7 +215,6 @@ namespace Mono_MazeSolver_MacOS
 
         public void Update(KeyboardState tecla)
         {
-
         }
 
         public void Draw(SpriteBatch spriteBatch)

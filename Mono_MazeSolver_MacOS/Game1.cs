@@ -22,7 +22,6 @@ namespace Mono_MazeSolver_MacOS
                 { " ", "s", "x", " ", " ", " ", " ", "x", "e" }
             };
         Maze maze;
-        Button boton1;
 
         public Game1()
         {
@@ -50,9 +49,6 @@ namespace Mono_MazeSolver_MacOS
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             maze = new Maze(myMaze, Content);
-
-
-            boton1 = new Button("BotonUno", Content.Load<Texture2D>("Button1"), 10, 70);
         }
 
 
@@ -60,27 +56,22 @@ namespace Mono_MazeSolver_MacOS
         {
             // For Mobile devices, this logic will close the Game when the Back button is pressed
             // Exit() is obsolete on iOS
-#if !__IOS__ && !__TVOS__
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
-#endif
+            /*#if !__IOS__ && !__TVOS__
+                if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+                    Exit();
+            #endif*/
 
             MouseState state = Mouse.GetState();
 
-            timeCount = timeCount+ gameTime.ElapsedGameTime.TotalMilliseconds;
-            if (timeCount>1)
+
+            // Maze solver
             {
-                timeCount = 0;
                 Tools.FillWithNumbers(maze);
-
                 Tools.GetShortestPath(maze);
-
                 Tools.CleanMaze(maze);
-
-                Tools.PrintMaze(maze);
+                //Tools.PrintMaze(maze);
             }
 
-            boton1.Update(state, gameTime);
             base.Update(gameTime);
         }
 
@@ -93,7 +84,7 @@ namespace Mono_MazeSolver_MacOS
             spriteBatch.Begin();
 
             maze.Draw(spriteBatch);
-            boton1.Draw(spriteBatch);
+
             spriteBatch.End();
 
             base.Draw(gameTime);
