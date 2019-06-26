@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Main_Maze_Solver", "Main_Ma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mono_MazeSolver_MacOS", "Mono_MazeSolver_MacOS\Mono_MazeSolver_MacOS.csproj", "{3A23AA06-840E-4419-9CA5-6CA6A633EB1F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{32EB6D0C-31FC-4A1D-AAE3-2BC0C812B12F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -25,5 +27,9 @@ Global
 		{3A23AA06-840E-4419-9CA5-6CA6A633EB1F}.Debug|x86.Build.0 = Debug|x86
 		{3A23AA06-840E-4419-9CA5-6CA6A633EB1F}.Release|x86.ActiveCfg = Release|x86
 		{3A23AA06-840E-4419-9CA5-6CA6A633EB1F}.Release|x86.Build.0 = Release|x86
+		{32EB6D0C-31FC-4A1D-AAE3-2BC0C812B12F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{32EB6D0C-31FC-4A1D-AAE3-2BC0C812B12F}.Debug|x86.Build.0 = Debug|Any CPU
+		{32EB6D0C-31FC-4A1D-AAE3-2BC0C812B12F}.Release|x86.ActiveCfg = Release|Any CPU
+		{32EB6D0C-31FC-4A1D-AAE3-2BC0C812B12F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
