@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using Main_Maze_Solver;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace TestMazeSolver
+﻿using MazeSolver;
+using NUnit.Framework;
+using System;
+namespace MazeSolver_Test
 {
-    [TestClass]
+    [TestFixture()]
     public class Test_Point_Class
     {
-        [TestMethod]
+        [Test()]
         public void Test_Point()
         {
             var point = new Point(0, 0);
@@ -16,7 +14,7 @@ namespace TestMazeSolver
         }
 
 
-        [TestMethod]
+        [Test()]
         public void Test_Point_Up()
         {
             var point = new Point(0, 0);
@@ -24,7 +22,7 @@ namespace TestMazeSolver
         }
 
 
-        [TestMethod]
+        [Test()]
         public void Test_Point_Down()
         {
             var point = new Point(0, 0);
@@ -32,7 +30,7 @@ namespace TestMazeSolver
         }
 
 
-        [TestMethod]
+        [Test()]
         public void Test_Point_Right()
         {
             var point = new Point(0, 0);
@@ -40,7 +38,7 @@ namespace TestMazeSolver
         }
 
 
-        [TestMethod]
+        [Test()]
         public void Test_Point_Left()
         {
             var point = new Point(0, 0);

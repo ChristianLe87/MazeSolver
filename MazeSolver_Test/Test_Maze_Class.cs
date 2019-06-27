@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using Main_Maze_Solver;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace TestMazeSolver
+﻿using MazeSolver;
+using NUnit.Framework;
+using System;
+namespace MazeSolver_Test
 {
 
-    [TestClass]
+
+
+    [TestFixture()]
     public class Test_Maze_Class
     {
-        [TestMethod]
+        [Test()]
         public void _1_Maze_StartPoint()
         {
             string[,] myMaze = new string[,]
@@ -22,7 +22,7 @@ namespace TestMazeSolver
         }
 
 
-        [TestMethod]
+        [Test()]
         public void _2_Maze_EndPoint()
         {
             string[,] myMaze = new string[,]
@@ -35,7 +35,7 @@ namespace TestMazeSolver
         }
 
 
-        [TestMethod]
+        [Test()]
         public void _3_1_Maze_GetElement()
         {
             string[,] myMaze = new string[,]
@@ -47,7 +47,7 @@ namespace TestMazeSolver
         }
 
 
-        [TestMethod]
+        [Test()]
         public void _3_2_Maze_GetElement_OutOfRange()
         {
             string[,] myMaze = new string[,]
@@ -59,7 +59,7 @@ namespace TestMazeSolver
         }
 
 
-        [TestMethod]
+        [Test()]
         public void _4_1_Maze_SetElement()
         {
             string[,] myMaze = new string[,]
@@ -72,7 +72,7 @@ namespace TestMazeSolver
         }
 
 
-        [TestMethod]
+        [Test()]
         public void _4_2_Maze_SetElement_NotEmpty()
         {
             string[,] myMaze = new string[,]
@@ -85,7 +85,7 @@ namespace TestMazeSolver
         }
 
 
-        [TestMethod]
+        [Test()]
         public void _4_3_Maze_SetElement_OutOfRange()
         {
             string[,] myMaze = new string[,]
@@ -97,7 +97,7 @@ namespace TestMazeSolver
         }
 
 
-        [TestMethod]
+        [Test()]
         public void _5_1_Maze_Set_Up()
         {
             string[,] myMaze = new string[,]
@@ -111,7 +111,7 @@ namespace TestMazeSolver
         }
 
 
-        [TestMethod]
+        [Test()]
         public void _5_2_Maze_Set_Up_NotEmpty()
         {
             string[,] myMaze = new string[,]
@@ -125,7 +125,7 @@ namespace TestMazeSolver
         }
 
 
-        [TestMethod]
+        [Test()]
         public void _5_3_Maze_Set_Up_OutOfRange()
         {
             string[,] myMaze = new string[,]
@@ -137,7 +137,7 @@ namespace TestMazeSolver
         }
 
 
-        [TestMethod]
+        [Test()]
         public void _6_1_Maze_Set_Down()
         {
             string[,] myMaze = new string[,]
@@ -151,7 +151,7 @@ namespace TestMazeSolver
         }
 
 
-        [TestMethod]
+        [Test()]
         public void _6_2_Maze_Set_Down_NotEmpty()
         {
             string[,] myMaze = new string[,]
@@ -165,7 +165,7 @@ namespace TestMazeSolver
         }
 
 
-        [TestMethod]
+        [Test()]
         public void _6_3_Maze_Set_Down_OutOfRange()
         {
             string[,] myMaze = new string[,]
@@ -177,7 +177,7 @@ namespace TestMazeSolver
         }
 
 
-        [TestMethod]
+        [Test()]
         public void _7_1_Maze_Set_Right()
         {
             string[,] myMaze = new string[,]
@@ -190,7 +190,7 @@ namespace TestMazeSolver
         }
 
 
-        [TestMethod]
+        [Test()]
         public void _7_2_Maze_Set_Right_NotEmpty()
         {
             string[,] myMaze = new string[,]
@@ -203,7 +203,7 @@ namespace TestMazeSolver
         }
 
 
-        [TestMethod]
+        [Test()]
         public void _7_3_Maze_Set_Right_OutOfRange()
         {
             string[,] myMaze = new string[,]
@@ -215,7 +215,7 @@ namespace TestMazeSolver
         }
 
 
-        [TestMethod]
+        [Test()]
         public void _8_1_Maze_Set_Left()
         {
             string[,] myMaze = new string[,]
@@ -228,7 +228,7 @@ namespace TestMazeSolver
         }
 
 
-        [TestMethod]
+        [Test()]
         public void _8_2_Maze_Set_Left_NotEmpty()
         {
             string[,] myMaze = new string[,]
@@ -241,7 +241,7 @@ namespace TestMazeSolver
         }
 
 
-        [TestMethod]
+        [Test()]
         public void _8_3_Maze_Set_Left_OutOfRange()
         {
             string[,] myMaze = new string[,]
@@ -253,7 +253,7 @@ namespace TestMazeSolver
         }
 
 
-        [TestMethod]
+        [Test()]
         public void _9_1_Maze_GetLef()
         {
             string[,] myMaze = new string[,]
@@ -265,7 +265,7 @@ namespace TestMazeSolver
         }
 
 
-        [TestMethod]
+        [Test()]
         public void _9_2_Maze_GetLef_OutOfRange()
         {
             string[,] myMaze = new string[,]
@@ -277,7 +277,7 @@ namespace TestMazeSolver
         }
 
 
-        [TestMethod]
+        [Test()]
         public void _10_1_Maze_GetRight()
         {
             string[,] myMaze = new string[,]
@@ -289,7 +289,7 @@ namespace TestMazeSolver
         }
 
 
-        [TestMethod]
+        [Test()]
         public void _10_2_Maze_GetRight_OutOfRange()
         {
             string[,] myMaze = new string[,]
@@ -301,7 +301,7 @@ namespace TestMazeSolver
         }
 
 
-        [TestMethod]
+        [Test()]
         public void _11_1_Maze_GetUp()
         {
             string[,] myMaze = new string[,]
@@ -314,7 +314,7 @@ namespace TestMazeSolver
         }
 
 
-        [TestMethod]
+        [Test()]
         public void _11_2_Maze_GetUp_OutOfRange()
         {
             string[,] myMaze = new string[,]
@@ -326,7 +326,7 @@ namespace TestMazeSolver
         }
 
 
-        [TestMethod]
+        [Test()]
         public void _12_1_Maze_GetDown()
         {
             string[,] myMaze = new string[,]
@@ -339,7 +339,7 @@ namespace TestMazeSolver
         }
 
 
-        [TestMethod]
+        [Test()]
         public void _12_2_Maze_GetDown_OutOfRange()
         {
             string[,] myMaze = new string[,]

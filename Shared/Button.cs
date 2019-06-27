@@ -1,10 +1,12 @@
 ﻿using System;
 namespace Shared
 {
-    public class MyClass
+    public class Button
     {
-        public MyClass()
+        public Button()
         {
         }
     }
+
+
 }

@@ -1,15 +1,15 @@
-﻿using System;
+﻿using NUnit.Framework;
+using System;
 using System.Collections.Generic;
-using Main_Maze_Solver;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TestMazeSolver
+namespace MazeSolver_Test
 {
 
-    //[TestClass]
+
+    //[TestFixture()]
     public class Test_Get
     {
-        //[TestMethod]
+        //[Test()]
         public void Test_Get_Up()
         {
             List<List<char>> maze = new List<List<char>>

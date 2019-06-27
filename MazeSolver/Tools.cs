@@ -1,8 +1,8 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Main_Maze_Solver
+namespace MazeSolver
 {
     public static class Tools
     {
@@ -42,18 +42,18 @@ namespace Main_Maze_Solver
 
         internal static void CleanMaze(Maze maze)
         {
-            for(var row = 0; row < maze.Height; ++row)
+            for (var row = 0; row < maze.Height; ++row)
             {
-                for (var element =0; element < maze.Width; ++element)
+                for (var element = 0; element < maze.Width; ++element)
                 {
                     var point = new Point(element, row);
-                    if(
+                    if (
                         (maze.GetElement(point) != "s") &&
                         (maze.GetElement(point) != "e") &&
                         (maze.GetElement(point) != "*") &&
                         (maze.GetElement(point) != "x")
                         )
-                    maze.SetElement(point, " ", true);
+                        maze.SetElement(point, " ", true);
                 }
             }
         }
@@ -71,20 +71,20 @@ namespace Main_Maze_Solver
             List<string> strElements = new List<string>() { up, down, right, left };
             var intElements = strElements
                             .Where(x => x != "x")
-                            .Where(x=> x != "s")
+                            .Where(x => x != "s")
                             .Where(x => x != "e")
                             .Where(x => x != "*")
                             .Select(x => Int32.Parse(x))
                             .OrderBy(x => x)
                             .Distinct()
                             .ToList();
-                            
+
 
             for (var i = intElements.FirstOrDefault(); i > 0; --i)
             {
                 if (up == i.ToString())
                 {
-                    maze.Set_Up(end, "*",true);
+                    maze.Set_Up(end, "*", true);
                     end = end.Up;
 
                     up = maze.Get_Up(end);
@@ -136,11 +136,11 @@ namespace Main_Maze_Solver
 
         public static void PrintMaze(Maze maze)
         {
-            for(var line =0; line< maze.Height;++line)
+            for (var line = 0; line < maze.Height; ++line)
             {
-                for(var element = 0; element < maze.Width; ++element)
+                for (var element = 0; element < maze.Width; ++element)
                 {
-                    Console.Write($" {maze.maze[line,element]} ");
+                    Console.Write($" {maze.maze[line, element]} ");
                 }
                 Console.WriteLine();
             }

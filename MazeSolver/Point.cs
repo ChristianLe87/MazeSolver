@@ -1,5 +1,5 @@
-﻿using System;
-namespace Mono_MazeSolver_MacOS
+﻿﻿using System;
+namespace MazeSolver
 {
     public class Point
     {

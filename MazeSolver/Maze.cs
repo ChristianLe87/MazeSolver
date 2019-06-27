@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Main_Maze_Solver
+namespace MazeSolver
 {
     public class Maze
     {
@@ -75,7 +75,7 @@ namespace Main_Maze_Solver
         {
             if ((point.X <= Width - 1) && (point.X >= 0) && (point.Y <= Height) && (point.Y >= 0))
             {
-                return maze[point.Y,point.X];
+                return maze[point.Y, point.X];
             }
             else
             {
@@ -128,11 +128,11 @@ namespace Main_Maze_Solver
             {
                 if (forceSet)
                 {
-                    maze[point.Y,point.X] = val;
+                    maze[point.Y, point.X] = val;
                 }
-                else if (maze[point.Y,point.X] == " ")
+                else if (maze[point.Y, point.X] == " ")
                 {
-                    maze[point.Y,point.X] = val;
+                    maze[point.Y, point.X] = val;
                 }
             }
         }
