@@ -2,6 +2,7 @@
 using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace Shared
 {
@@ -9,15 +10,17 @@ namespace Shared
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Maze maze;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
 
-            string localPath = "../../../../MonoGame_With_NuGets_Mac/MonoGame_With_NuGets_Mac/Content/bin/";
+            string localPath = "../../../../MazeSolver/Shared/Content/bin/";
             DirectoryInfo directory = new DirectoryInfo(Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, localPath)));
+            var bla = directory.ToString();
             Content.RootDirectory = directory.ToString();
-
+            
             graphics.PreferredBackBufferWidth = 500;
             graphics.PreferredBackBufferHeight = 500;
         }
@@ -26,18 +29,22 @@ namespace Shared
         protected override void Initialize()
         {
             base.Initialize();
+            this.IsMouseVisible = true;
         }
 
 
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
+            maze = new Maze(Content);
             spriteBatch = new SpriteBatch(GraphicsDevice);
         }
 
 
         protected override void Update(GameTime gameTime)
         {
+            MouseState mouseState = Mouse.GetState();
+            maze.Update(mouseState);
             base.Update(gameTime);
         }
 
@@ -48,6 +55,7 @@ namespace Shared
             graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
 
             spriteBatch.Begin();
+            maze.Draw(spriteBatch);
             spriteBatch.End();
 
             base.Draw(gameTime);

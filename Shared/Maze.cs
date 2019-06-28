@@ -3,59 +3,57 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
-namespace Mono_MazeSolver_MacOS
+namespace Shared
 {
     public class Maze
     {
-        List<List<string>> maze;
-        Texture2D Texture_NotWall;
-        Texture2D Texture_Wall;
-        Texture2D Texture_Path;
-        Texture2D Texture_Start;
-        Texture2D Texture_End;
-        Rectangle rectangle = new Rectangle(0, 0, 20, 20);
+        List<List<Button>> maze;
 
 
         public Maze(ContentManager Content)
         {
-            maze = new List<List<string>>();
+            maze = new List<List<Button>>();
 
             // create one row
-            List<string> row = new List<string>();
-            for (int i = 0; i < 9; i++)
+            //List<Button> row = new List<Button>();
+
+            for (var row = 0; row < 5; row++)
             {
-                row.Add(" ");
+                List<Button> elementButton = new List<Button>();
+                for (int element = 0; element < 9; element++)
+                {
+                    Button button = new Button(Content, "NotWall", new Rectangle(element*20, row*20, 20, 20));
+                    elementButton.Add(button);
+                }
+                maze.Add(elementButton);
             }
-
-            // insert rows into maze
-            for(var i = 0; i < 5; i++)
-            {
-                maze.Add(row);
-            }
-
-
-
-
-            // Define textures
-            this.Texture_End = Content.Load<Texture2D>("abc");
-            this.Texture_NotWall = Content.Load<Texture2D>("abc");
-            this.Texture_Path = Content.Load<Texture2D>("abc");
-            this.Texture_Start = Content.Load<Texture2D>("abc");
-            this.Texture_Wall = Content.Load<Texture2D>("abc");
-
-
 
         }
 
 
-        public void Update()
+        public void Update(MouseState mouseState)
         {
+            foreach (var i in maze)
+            {
+                foreach (var item in i)
+                {
+                    item.Update(mouseState);
+                }
+            }
         }
 
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            foreach (var i in maze)
+            {
+                foreach (var item in i)
+                {
+                    item.Draw(spriteBatch);
+                }
+            }
         }
     }
 }
