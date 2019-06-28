@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoMazeSolver_MacOS", "Mon
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{D55566D4-F06F-4821-AAA2-82E9DB5F46EB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoMazeSolver_Universal", "MonoMazeSolver_Universal\MonoMazeSolver_Universal.csproj", "{2DB40EB5-BE28-4C89-B5BD-215EF30185B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -31,5 +33,9 @@ Global
 		{D55566D4-F06F-4821-AAA2-82E9DB5F46EB}.Debug|x86.Build.0 = Debug|Any CPU
 		{D55566D4-F06F-4821-AAA2-82E9DB5F46EB}.Release|x86.ActiveCfg = Release|Any CPU
 		{D55566D4-F06F-4821-AAA2-82E9DB5F46EB}.Release|x86.Build.0 = Release|Any CPU
+		{2DB40EB5-BE28-4C89-B5BD-215EF30185B0}.Debug|x86.ActiveCfg = Debug|x86
+		{2DB40EB5-BE28-4C89-B5BD-215EF30185B0}.Debug|x86.Build.0 = Debug|x86
+		{2DB40EB5-BE28-4C89-B5BD-215EF30185B0}.Release|x86.ActiveCfg = Release|x86
+		{2DB40EB5-BE28-4C89-B5BD-215EF30185B0}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 EndGlobal

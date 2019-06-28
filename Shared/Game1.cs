@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -13,7 +14,9 @@ namespace Shared
         {
             graphics = new GraphicsDeviceManager(this);
 
-            Content.RootDirectory = "/Users/christianlehnhoff/Repositorios/GitHub/MonoGame_With_NuGets_Mac/MonoGame_With_NuGets_Mac/Content/bin/";
+            string localPath = "../../../../MonoGame_With_NuGets_Mac/MonoGame_With_NuGets_Mac/Content/bin/";
+            DirectoryInfo directory = new DirectoryInfo(Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, localPath)));
+            Content.RootDirectory = directory.ToString();
 
             graphics.PreferredBackBufferWidth = 500;
             graphics.PreferredBackBufferHeight = 500;
