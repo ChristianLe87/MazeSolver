@@ -19,12 +19,12 @@ namespace Shared
             // create one row
             //List<Button> row = new List<Button>();
 
-            for (var row = 0; row < 5; row++)
+            for (var row = 0; row < 23; row++)
             {
                 List<Button> elementButton = new List<Button>();
-                for (int element = 0; element < 9; element++)
+                for (int element = 0; element < 25; element++)
                 {
-                    Button button = new Button(Content, "NotWall", new Rectangle(element*20, row*20, 20, 20));
+                    Button button = new Button(Content, "NotWall", new Rectangle(element * 20, 40 + row * 20, 20, 20));
                     elementButton.Add(button);
                 }
                 maze.Add(elementButton);

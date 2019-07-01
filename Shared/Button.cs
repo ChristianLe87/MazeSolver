@@ -8,6 +8,7 @@ namespace Shared
 {
     public class Button
     {
+
         public string Name { get; set; }
         Texture2D Texture_NotWall;
         Texture2D Texture_Wall;
@@ -30,6 +31,7 @@ namespace Shared
             this.rectangle = rectangle;
         }
 
+
         public void Update(MouseState state)
         {
             int posX = state.Position.X;
@@ -42,7 +44,6 @@ namespace Shared
                 )
             {
                 Name = "Wall";
-                Console.WriteLine("Test");
             }
         }
 
@@ -68,10 +69,8 @@ namespace Shared
                     break;
                 default:
                     break;
-            }
-            
+            }            
         }
+
     }
-
-
 }
