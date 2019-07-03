@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -6,7 +7,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Shared
 {
-    public class Button
+    public class MazeTile
     {
 
         public string Name { get; set; }
@@ -18,7 +19,7 @@ namespace Shared
         Rectangle rectangle;
 
 
-        public Button(ContentManager Content, string name, Rectangle rectangle)
+        public MazeTile(ContentManager Content, string name, Rectangle rectangle)
         {
             // Define textures
             this.Texture_End = Content.Load<Texture2D>("End");
@@ -32,18 +33,34 @@ namespace Shared
         }
 
 
-        public void Update(MouseState state)
+        public void Update(MouseState state, KeyboardState keyboardState, List<List<MazeTile>> mazeTiles)
         {
             int posX = state.Position.X;
             int posY = state.Position.Y;
 
-            if (
-                (posX < rectangle.X + 20 && posX > rectangle.X && posY < rectangle.Y + 20 && posY > rectangle.Y)
-                &&
-                (state.LeftButton == ButtonState.Pressed)
-                )
+            if (((keyboardState.IsKeyDown(Keys.S) == false) && (keyboardState.IsKeyDown(Keys.E) == false)) && (posX < rectangle.X + 20 && posX > rectangle.X && posY < rectangle.Y + 20 && posY > rectangle.Y) && (state.LeftButton == ButtonState.Pressed))
             {
                 Name = "Wall";
+            }
+            else if (((keyboardState.IsKeyDown(Keys.S) == false) && (keyboardState.IsKeyDown(Keys.E) == false)) && (posX < rectangle.X + 20 && posX > rectangle.X && posY < rectangle.Y + 20 && posY > rectangle.Y) && (state.RightButton == ButtonState.Pressed))
+            {
+                Name = "NotWall";
+            }
+            else if (((keyboardState.IsKeyDown(Keys.S) == true) && (keyboardState.IsKeyDown(Keys.E) == false)) && (posX < rectangle.X + 20 && posX > rectangle.X && posY < rectangle.Y + 20 && posY > rectangle.Y) && (state.LeftButton == ButtonState.Pressed))
+            {
+                foreach (var row in mazeTiles)
+                    foreach (var element in row)
+                        if (element.Name == "Start")
+                            element.Name = "NotWall";
+                Name = "Start";
+            }
+            else if (((keyboardState.IsKeyDown(Keys.S) == false) && (keyboardState.IsKeyDown(Keys.E) == true)) && (posX < rectangle.X + 20 && posX > rectangle.X && posY < rectangle.Y + 20 && posY > rectangle.Y) && (state.LeftButton == ButtonState.Pressed))
+            {
+                foreach (var row in mazeTiles)
+                    foreach (var element in row)
+                        if (element.Name == "End")
+                            element.Name = "NotWall";
+                Name = "End";
             }
         }
 
@@ -69,7 +86,7 @@ namespace Shared
                     break;
                 default:
                     break;
-            }            
+            }
         }
 
     }

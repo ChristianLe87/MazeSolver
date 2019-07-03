@@ -44,7 +44,9 @@ namespace Shared
         protected override void Update(GameTime gameTime)
         {
             MouseState mouseState = Mouse.GetState();
-            maze.Update(mouseState);
+            KeyboardState keyboardState = Keyboard.GetState();
+
+            maze.Update(mouseState,keyboardState);
             base.Update(gameTime);
         }
 

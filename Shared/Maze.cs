@@ -9,45 +9,47 @@ namespace Shared
 {
     public class Maze
     {
-        List<List<Button>> maze;
-
+        List<List<MazeTile>> mazeTiles;
 
         public Maze(ContentManager Content)
         {
-            maze = new List<List<Button>>();
-
-            // create one row
-            //List<Button> row = new List<Button>();
+            mazeTiles = new List<List<MazeTile>>();
 
             for (var row = 0; row < 23; row++)
             {
-                List<Button> elementButton = new List<Button>();
+                List<MazeTile> rowTiles = new List<MazeTile>();
+                List<string> rowStrings = new List<string>();
+
                 for (int element = 0; element < 25; element++)
                 {
-                    Button button = new Button(Content, "NotWall", new Rectangle(element * 20, 40 + row * 20, 20, 20));
-                    elementButton.Add(button);
+                    MazeTile tile = new MazeTile(Content, "NotWall", new Rectangle(element * 20, 40 + row * 20, 20, 20));
+                    string mazeString = " ";
+
+                    rowTiles.Add(tile);
+                    rowStrings.Add(mazeString);
                 }
-                maze.Add(elementButton);
+                mazeTiles.Add(rowTiles);
             }
 
         }
 
 
-        public void Update(MouseState mouseState)
+        public void Update(MouseState mouseState, KeyboardState keyboardState)
         {
-            foreach (var i in maze)
+            foreach (var i in mazeTiles)
             {
                 foreach (var item in i)
                 {
-                    item.Update(mouseState);
+                    item.Update(mouseState, keyboardState, mazeTiles);
                 }
             }
         }
+
 
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            foreach (var i in maze)
+            foreach (var i in mazeTiles)
             {
                 foreach (var item in i)
                 {
