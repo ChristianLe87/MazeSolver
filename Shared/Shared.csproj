@@ -41,5 +41,11 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MazeSolver\MazeSolver.csproj">
+      <Project>{AA6F4FCA-AAAD-4AB6-A1C4-E3AEB39197D2}</Project>
+      <Name>MazeSolver</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

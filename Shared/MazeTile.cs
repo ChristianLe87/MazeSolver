@@ -40,27 +40,27 @@ namespace Shared
 
             if (((keyboardState.IsKeyDown(Keys.S) == false) && (keyboardState.IsKeyDown(Keys.E) == false)) && (posX < rectangle.X + 20 && posX > rectangle.X && posY < rectangle.Y + 20 && posY > rectangle.Y) && (state.LeftButton == ButtonState.Pressed))
             {
-                Name = "Wall";
+                Name = "x";
             }
             else if (((keyboardState.IsKeyDown(Keys.S) == false) && (keyboardState.IsKeyDown(Keys.E) == false)) && (posX < rectangle.X + 20 && posX > rectangle.X && posY < rectangle.Y + 20 && posY > rectangle.Y) && (state.RightButton == ButtonState.Pressed))
             {
-                Name = "NotWall";
+                Name = " ";
             }
             else if (((keyboardState.IsKeyDown(Keys.S) == true) && (keyboardState.IsKeyDown(Keys.E) == false)) && (posX < rectangle.X + 20 && posX > rectangle.X && posY < rectangle.Y + 20 && posY > rectangle.Y) && (state.LeftButton == ButtonState.Pressed))
             {
                 foreach (var row in mazeTiles)
                     foreach (var element in row)
-                        if (element.Name == "Start")
-                            element.Name = "NotWall";
-                Name = "Start";
+                        if (element.Name == "s")
+                            element.Name = " ";
+                Name = "s";
             }
             else if (((keyboardState.IsKeyDown(Keys.S) == false) && (keyboardState.IsKeyDown(Keys.E) == true)) && (posX < rectangle.X + 20 && posX > rectangle.X && posY < rectangle.Y + 20 && posY > rectangle.Y) && (state.LeftButton == ButtonState.Pressed))
             {
                 foreach (var row in mazeTiles)
                     foreach (var element in row)
-                        if (element.Name == "End")
-                            element.Name = "NotWall";
-                Name = "End";
+                        if (element.Name == "e")
+                            element.Name = " ";
+                Name = "e";
             }
         }
 
@@ -69,19 +69,19 @@ namespace Shared
         {
             switch (Name)
             {
-                case "NotWall":
+                case " ":
                     spriteBatch.Draw(Texture_NotWall, rectangle, Color.White);
                     break;
-                case "Wall":
+                case "x":
                     spriteBatch.Draw(Texture_Wall, rectangle, Color.White);
                     break;
-                case "Path":
+                case "*":
                     spriteBatch.Draw(Texture_Path, rectangle, Color.White);
                     break;
-                case "Start":
+                case "s":
                     spriteBatch.Draw(Texture_Start, rectangle, Color.White);
                     break;
-                case "End":
+                case "e":
                     spriteBatch.Draw(Texture_End, rectangle, Color.White);
                     break;
                 default:

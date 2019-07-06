@@ -7,7 +7,7 @@ namespace MazeSolver
     public static class Tools
     {
 
-        internal static void FillWithNumbers(Maze maze)
+        public static void FillWithNumbers(Maze maze)
         {
             int maxNumb = maze.Width * maze.Height;
 
@@ -40,7 +40,7 @@ namespace MazeSolver
             }
         }
 
-        internal static void CleanMaze(Maze maze)
+        public static void CleanMaze(Maze maze)
         {
             for (var row = 0; row < maze.Height; ++row)
             {
@@ -58,7 +58,7 @@ namespace MazeSolver
             }
         }
 
-        internal static void GetShortestPath(Maze maze)
+        public static void GetShortestPath(Maze maze)
         {
             var end = maze.EndPoint;
 

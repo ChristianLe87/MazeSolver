@@ -35,7 +35,7 @@ namespace Shared
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            //maze = new Maze(Content);
+            maze = new Maze(Content);
             spriteBatch = new SpriteBatch(GraphicsDevice);
         }
 
@@ -44,7 +44,7 @@ namespace Shared
         {
             MouseState mouseState = Mouse.GetState();
             KeyboardState keyboardState = Keyboard.GetState();
-
+            maze.Update(mouseState, keyboardState);
             base.Update(gameTime);
         }
 
@@ -55,6 +55,7 @@ namespace Shared
             graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
 
             spriteBatch.Begin();
+            maze.Draw(spriteBatch);
             spriteBatch.End();
 
             base.Draw(gameTime);

@@ -10,7 +10,7 @@ namespace Shared
     public class Maze
     {
         List<List<MazeTile>> mazeTiles;
-
+        bool canDrawMaze = false;
         public Maze(ContentManager Content)
         {
             mazeTiles = new List<List<MazeTile>>();
@@ -22,7 +22,7 @@ namespace Shared
 
                 for (int element = 0; element < 25; element++)
                 {
-                    MazeTile tile = new MazeTile(Content, "NotWall", new Rectangle(element * 20, 40 + row * 20, 20, 20));
+                    MazeTile tile = new MazeTile(Content, " ", new Rectangle(element * 20, 40 + row * 20, 20, 20));
                     string mazeString = " ";
 
                     rowTiles.Add(tile);
@@ -43,6 +43,45 @@ namespace Shared
                     item.Update(mouseState, keyboardState, mazeTiles);
                 }
             }
+
+
+
+
+            List<List<string>> myMaze = new List<List<string>>();
+
+
+            for (var row = 0; row < mazeTiles.Count; row++)
+            {
+                List<string> rows = new List<string>();
+                foreach (var element in mazeTiles[row])
+                {
+                    rows.Add(element.Name);
+                }
+                myMaze.Add(rows);
+            }
+
+
+            
+
+
+
+
+            if ((keyboardState.IsKeyDown(Keys.P) == true))
+            {
+                canDrawMaze = true;
+                
+            }
+
+            if (canDrawMaze)
+            {
+                var maze = new MazeSolver.Maze(myMaze);
+                MazeSolver.Tools.FillWithNumbers(maze);
+                MazeSolver.Tools.GetShortestPath(maze);
+                MazeSolver.Tools.CleanMaze(maze);
+                MazeSolver.Tools.PrintMaze(maze);
+            }
+
+
         }
 
 
