@@ -10,7 +10,9 @@ namespace Shared
     public class Maze
     {
         List<List<MazeTile>> mazeTiles;
-        bool canDrawMaze = false;
+        List<List<string>> myCalculatedMaze;
+
+
         public Maze(ContentManager Content)
         {
             mazeTiles = new List<List<MazeTile>>();
@@ -44,46 +46,28 @@ namespace Shared
                 }
             }
 
-
-
-
-            List<List<string>> myMaze = new List<List<string>>();
-
-
-            for (var row = 0; row < mazeTiles.Count; row++)
+            // calculate final maze
+            if(keyboardState.IsKeyDown(Keys.C) == true)
             {
-                List<string> rows = new List<string>();
-                foreach (var element in mazeTiles[row])
+                myCalculatedMaze = new List<List<string>>();
+
+                for (var row = 0; row < mazeTiles.Count; row++)
                 {
-                    rows.Add(element.Name);
+                    List<string> rows = new List<string>();
+                    foreach (var element in mazeTiles[row])
+                    {
+                        rows.Add(element.Name);
+                    }
+                    myCalculatedMaze.Add(rows);
                 }
-                myMaze.Add(rows);
-            }
 
-
-            
-
-
-
-
-            if ((keyboardState.IsKeyDown(Keys.P) == true))
-            {
-                canDrawMaze = true;
-                
-            }
-
-            if (canDrawMaze)
-            {
-                var maze = new MazeSolver.Maze(myMaze);
+                var maze = new MazeSolver.Maze(myCalculatedMaze);
                 MazeSolver.Tools.FillWithNumbers(maze);
                 MazeSolver.Tools.GetShortestPath(maze);
                 MazeSolver.Tools.CleanMaze(maze);
                 MazeSolver.Tools.PrintMaze(maze);
             }
-
-
         }
-
 
 
         public void Draw(SpriteBatch spriteBatch)
