@@ -17,14 +17,14 @@ namespace Shared
         {
             mazeTiles = new List<List<MazeTile>>();
 
-            for (var row = 0; row < 23; row++)
+            for (var row = 0; row < 25; row++)
             {
                 List<MazeTile> rowTiles = new List<MazeTile>();
                 List<string> rowStrings = new List<string>();
 
                 for (int element = 0; element < 25; element++)
                 {
-                    MazeTile tile = new MazeTile(Content, " ", new Rectangle(element * 20, 40 + row * 20, 20, 20));
+                    MazeTile tile = new MazeTile(Content, " ", new Rectangle(element * 20, row * 20, 20, 20));
                     string mazeString = " ";
 
                     rowTiles.Add(tile);
