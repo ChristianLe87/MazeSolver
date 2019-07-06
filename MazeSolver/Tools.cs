@@ -30,7 +30,7 @@ namespace MazeSolver
                     // for each element
                     for (var element = 0; element < maze.Width; ++element)
                     {
-                        if (maze.maze[row, element] == possibles[possible])
+                        if (maze.maze[row][element] == possibles[possible])
                         {
                             UpDownRightLeft(maze, new Point(element, row), possibles[possible + 1]);
                         }
@@ -136,11 +136,11 @@ namespace MazeSolver
 
         public static void PrintMaze(Maze maze)
         {
-            for (var line = 0; line < maze.Height; ++line)
+            foreach (var row in maze.maze)
             {
-                for (var element = 0; element < maze.Width; ++element)
+                foreach (var element in row)
                 {
-                    Console.Write($" {maze.maze[line, element]} ");
+                    Console.Write($" {element} ");
                 }
                 Console.WriteLine();
             }

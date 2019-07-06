@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MazeSolver
 {
@@ -6,15 +7,13 @@ namespace MazeSolver
     {
         static void Main()
         {
-            string[,] myMaze = new string[,]
-            {
-                { " ", " ", " ", " ", "x", " ", " ", " ", " " },
-                { " ", " ", " ", " ", "x", " ", " ", " ", " " },
-                { " ", "x", "x", " ", " ", " ", " ", "x", " " },
-                { " ", "s", " ", "x", "x", " ", " ", "x", " " },
-                { " ", " ", "x", " ", " ", " ", " ", "x", " " },
-                { " ", " ", "x", " ", " ", " ", " ", "x", "e" }
-            };
+            List<List<string>> myMaze = new List<List<string>>();
+            myMaze.Add(new List<string>() { " ", " ", " ", " ", "x", " ", " ", " ", " " });
+            myMaze.Add(new List<string>() { " ", " ", " ", " ", "x", " ", " ", " ", " " });
+            myMaze.Add(new List<string>() { " ", "x", "x", " ", " ", " ", " ", "x", " " });
+            myMaze.Add(new List<string>() { " ", "s", " ", "x", "x", " ", " ", "x", " " });
+            myMaze.Add(new List<string>() { " ", " ", "x", " ", " ", " ", " ", "x", " " });
+            myMaze.Add(new List<string>() { " ", " ", "x", " ", " ", " ", " ", "x", "e" });
 
             var maze = new Maze(myMaze);
 

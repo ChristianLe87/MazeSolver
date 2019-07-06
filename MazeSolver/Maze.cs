@@ -6,7 +6,7 @@ namespace MazeSolver
 {
     public class Maze
     {
-        public string[,] maze { get; }
+       public List<List<string>> maze { get; }
 
         public Point StartPoint { get; }
         public Point EndPoint { get; }
@@ -16,7 +16,7 @@ namespace MazeSolver
 
         public Maze() { }
 
-        public Maze(string[,] maze)
+        public Maze(List<List<string>> maze)
         {
             this.maze = maze;
             this.Height = GetHeight();
@@ -28,12 +28,12 @@ namespace MazeSolver
 
         private int GetWidth()
         {
-            return maze.GetLength(1);
+            return maze[0].Count();
         }
 
         private int GetHeight()
         {
-            return maze.GetLength(0);
+            return maze.Count();
         }
 
         private Point GetStartPoint()
@@ -75,7 +75,7 @@ namespace MazeSolver
         {
             if ((point.X <= Width - 1) && (point.X >= 0) && (point.Y <= Height) && (point.Y >= 0))
             {
-                return maze[point.Y, point.X];
+                return maze[point.Y][point.X];
             }
             else
             {
@@ -128,11 +128,11 @@ namespace MazeSolver
             {
                 if (forceSet)
                 {
-                    maze[point.Y, point.X] = val;
+                    maze[point.Y][point.X] = val;
                 }
-                else if (maze[point.Y, point.X] == " ")
+                else if (maze[point.Y][point.X] == " ")
                 {
-                    maze[point.Y, point.X] = val;
+                    maze[point.Y][point.X] = val;
                 }
             }
         }
