@@ -74,6 +74,7 @@ namespace MazeSolver
                             .Where(x => x != "s")
                             .Where(x => x != "e")
                             .Where(x => x != "*")
+                            .Where(x => x != " ")
                             .Select(x => Int32.Parse(x))
                             .OrderBy(x => x)
                             .Distinct()

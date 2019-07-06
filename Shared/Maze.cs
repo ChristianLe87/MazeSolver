@@ -10,7 +10,7 @@ namespace Shared
     public class Maze
     {
         List<List<MazeTile>> mazeTiles;
-        List<List<string>> myCalculatedMaze;
+        
 
 
         public Maze(ContentManager Content)
@@ -47,9 +47,21 @@ namespace Shared
             }
 
             // calculate final maze
-            if(keyboardState.IsKeyDown(Keys.C) == true)
+            if (keyboardState.IsKeyDown(Keys.C) == true)
             {
-                myCalculatedMaze = new List<List<string>>();
+                List<List<string>> myCalculatedMaze = new List<List<string>>();
+
+                // Clean tiles
+                for (var row = 0; row < mazeTiles.Count; row++)
+                {
+                    for (var element = 0; element < mazeTiles.Count; element++)
+                    {
+                        if (mazeTiles[row][element].Name == "*")
+                        {
+                            mazeTiles[row][element].Name = " ";
+                        }
+                    }
+                }
 
                 for (var row = 0; row < mazeTiles.Count; row++)
                 {
@@ -66,6 +78,18 @@ namespace Shared
                 MazeSolver.Tools.GetShortestPath(maze);
                 MazeSolver.Tools.CleanMaze(maze);
                 MazeSolver.Tools.PrintMaze(maze);
+
+                // update tiles
+                for (var row = 0; row < mazeTiles.Count; row++)
+                {
+                    for (var element = 0; element < mazeTiles.Count; element++)
+                    {
+                        if (myCalculatedMaze[row][element] == "*")
+                        {
+                            mazeTiles[row][element].Name = "*";
+                        }
+                    }
+                }
             }
         }
 
