@@ -6,7 +6,10 @@ namespace MazeSolver_macOS
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            using (var game = new Shared.Game1())
+            {
+                game.Run();
+            }
         }
     }
 }

@@ -32,10 +32,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Test.cs" />
+    <Compile Include="Test_Maze_Class.cs" />
+    <Compile Include="Test_Point_Class.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MazeSolver\MazeSolver.csproj">
+      <Project>{73601B47-F321-4E74-8CBC-5902B7B16552}</Project>
+      <Name>MazeSolver</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
